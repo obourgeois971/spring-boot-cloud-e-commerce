@@ -20,7 +20,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_SERVER_MODE: "False"
     volumes:
       - pgadmin:/var/lib/pgadmin
     ports:
@@ -30,7 +30,7 @@ services:
     restart: unless-stopped
 
   zipkin:
-    container_name: zipkin
+    container_name: ms_zipkin
     image: openzipkin/zipkin
     ports:
       - "9411:9411"
@@ -39,7 +39,7 @@ services:
 
   mongodb:
     image: mongo
-    container_name: mongo_db
+    container_name: ms_mongo
     ports:
       - 27017:27017
     volumes:
@@ -50,7 +50,7 @@ services:
 
   mongo-express:
     image: mongo-express
-    container_name: mongo_express
+    container_name: ms_mongo_express
     restart: always
     ports:
       - 8081:8081
@@ -61,7 +61,7 @@ services:
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
-    container_name: zookeeper
+    container_name: ms_zookeeper
     environment:
       ZOOKEEPER_SERVER_ID: 1
       ZOOKEEPER_CLIENT_PORT: 2181
