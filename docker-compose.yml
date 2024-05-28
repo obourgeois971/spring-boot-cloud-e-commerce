@@ -37,9 +37,9 @@ services:
     networks:
       - microservices-net
 
-  mongodb:
+  mongo:
     image: mongo:latest
-    container_name: ms_mongo
+    container_name: mongo
     restart: always
     ports:
       - 27017:27017
